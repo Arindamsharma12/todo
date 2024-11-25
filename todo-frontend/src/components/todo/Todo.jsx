@@ -24,7 +24,7 @@ const Todo = () => {
       toast.error("Title or Body should not be empty");
     } else {
       if(id){
-        await axios.post(`http://localhost:1000/api/v2/add-task`,{title:Inputs.title,body:Inputs.body,id}).then((response)=>{
+        await axios.post(`https://todo-1-mpzo.onrender.com/api/v2/add-task`,{title:Inputs.title,body:Inputs.body,id}).then((response)=>{
           console.log(response)
         })
         setInputs({ title: "", body: "" });
@@ -41,7 +41,7 @@ const Todo = () => {
 
   const del = async (cardid) => {
     if(id){
-      await axios.delete(`http://localhost:1000/api/v2/delete-task/${cardid}`,{data:{id:id}}).then(()=>{
+      await axios.delete(`https://todo-1-mpzo.onrender.com/api/v2/delete-task/${cardid}`,{data:{id:id}}).then(()=>{
         toast.success("Your task is Deleted!")
       })
     }
@@ -60,7 +60,7 @@ const Todo = () => {
   useEffect(()=>{
     if(id){
       const fetch = async ()=>{
-        await axios.get(`http://localhost:1000/api/v2/get-tasks/${id}`).then((response)=>{
+        await axios.get(`https://todo-1-mpzo.onrender.com/api/v2/get-tasks/${id}`).then((response)=>{
           setArray(response.data.list)
         })
       };
