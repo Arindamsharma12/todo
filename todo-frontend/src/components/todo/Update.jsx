@@ -12,7 +12,7 @@ const Update = ({dis,update}) => {
   }
 
   const submit = async ()=>{
-    await axios.put(`http://localhost:1000/api/v2/update-task/${update._id}`,Inputs).then((response)=>{
+    await axios.put(`https://todo-1-mpzo.onrender.com/api/v2/update-task/${update._id}`,Inputs).then((response)=>{
       toast.success("Your Task is Updated")
     })
     dis("none");
